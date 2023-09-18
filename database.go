@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"github.com/dal-go/dalgo/dal"
-	"github.com/dal-go/dalgo2buntdb"
 	"github.com/sneat-co/sneat-core-modules/contactus/briefs4contactus"
 	"github.com/sneat-co/sneat-core-modules/contactus/dal4contactus"
 	"github.com/sneat-co/sneat-core-modules/memberus/briefs4memberus"
@@ -23,9 +22,9 @@ type SetupOption struct {
 }
 
 // NewMockDB create a new in-memory mock database
-func NewMockDB(t *testing.T, options ...SetupOption) dal.DB {
+func NewMockDB(t *testing.T, db dal.DB, options ...SetupOption) {
 	t.Helper()
-	db := dalgo2buntdb.NewInMemoryMockDB(t)
+	//db := dalgo2buntdb.NewInMemoryMockDB(t)
 	ctx := context.Background()
 	err := db.RunReadwriteTransaction(ctx, func(ctx context.Context, tx dal.ReadwriteTransaction) error {
 		for _, setup := range options {
@@ -41,7 +40,6 @@ func NewMockDB(t *testing.T, options ...SetupOption) dal.DB {
 	facade.GetDatabase = func(ctx context.Context) dal.DB {
 		return db
 	}
-	return db
 }
 
 // WithProfile1 create 1st test profile
