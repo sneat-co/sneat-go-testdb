@@ -113,7 +113,7 @@ func createTeams(ctx context.Context, tx dal.ReadwriteTransaction) (err error) {
 	}
 	team1 := dal4teamus.NewTeamContextWithDto("team1", team1dto)
 
-	team1Contactus := dal4contactus.NewContactusTeamContext(team1.ID)
+	team1Contactus := dal4contactus.NewContactusTeamModuleEntry(team1.ID)
 	team1Contactus.Data.AddContact("m1", &briefs4contactus.ContactBrief{
 		WithUserID: dbmodels.WithUserID{
 			UserID: "user1",
@@ -135,7 +135,7 @@ func createTeams(ctx context.Context, tx dal.ReadwriteTransaction) (err error) {
 	return err
 }
 
-func createTeam(ctx context.Context, tx dal.ReadwriteTransaction, team dal4teamus.TeamContext, contactusTeam dal4contactus.ContactusTeamContext) (record dal.Record, err error) {
+func createTeam(ctx context.Context, tx dal.ReadwriteTransaction, team dal4teamus.TeamContext, contactusTeam dal4contactus.ContactusTeamModuleEntry) (record dal.Record, err error) {
 	for _, m := range contactusTeam.Data.Contacts {
 		if m.UserID != "" {
 			team.Data.AddUserID(m.UserID)
