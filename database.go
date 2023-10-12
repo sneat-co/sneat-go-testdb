@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"github.com/dal-go/dalgo/dal"
 	"github.com/sneat-co/sneat-core-modules/contactus/briefs4contactus"
+	"github.com/sneat-co/sneat-core-modules/contactus/const4contactus"
 	"github.com/sneat-co/sneat-core-modules/contactus/dal4contactus"
-	"github.com/sneat-co/sneat-core-modules/memberus/briefs4memberus"
 	"github.com/sneat-co/sneat-core-modules/teamus/dal4teamus"
 	"github.com/sneat-co/sneat-core-modules/teamus/models4teamus"
 	"github.com/sneat-co/sneat-core-modules/userus/models4userus"
@@ -125,7 +125,7 @@ func createTeams(ctx context.Context, tx dal.ReadwriteTransaction) (err error) {
 		},
 		Title: "First user",
 		WithRoles: dbmodels.WithRoles{
-			Roles: []string{briefs4memberus.TeamMemberRoleTeamMember, briefs4memberus.TeamMemberRoleContributor},
+			Roles: []string{const4contactus.TeamMemberRoleMember, const4contactus.TeamMemberRoleContributor},
 		},
 	})
 	_, err = createTeam(ctx, tx, team1, team1Contactus)
