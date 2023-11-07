@@ -1,11 +1,11 @@
 module github.com/sneat-co/sneat-go-testdb
 
-go 1.21.0
+go 1.21.4
 
 require (
 	github.com/dal-go/dalgo v0.12.0
-	github.com/sneat-co/sneat-core-modules v0.9.0
-	github.com/sneat-co/sneat-go-core v0.16.0
+	github.com/sneat-co/sneat-core-modules v0.9.1
+	github.com/sneat-co/sneat-go-core v0.16.1
 )
 
 require (
