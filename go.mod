@@ -5,7 +5,7 @@ go 1.21.4
 require (
 	github.com/dal-go/dalgo v0.12.0
 	github.com/sneat-co/sneat-core-modules v0.9.1
-	github.com/sneat-co/sneat-go-core v0.16.1
+	github.com/sneat-co/sneat-go-core v0.18.0
 )
 
 require (
@@ -14,5 +14,5 @@ require (
 	github.com/strongo/decimal v0.0.1 // indirect
 	github.com/strongo/random v0.0.1 // indirect
 	github.com/strongo/slice v0.1.4 // indirect
-	github.com/strongo/validation v0.0.5 // indirect
+	github.com/strongo/validation v0.0.6 // indirect
 )
