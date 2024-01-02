@@ -12,6 +12,8 @@ import (
 	"github.com/sneat-co/sneat-core-modules/userus/models4userus"
 	"github.com/sneat-co/sneat-go-core/facade"
 	"github.com/sneat-co/sneat-go-core/models/dbmodels"
+	"github.com/strongo/strongoapp/person"
+	"github.com/strongo/strongoapp/with"
 	"testing"
 )
 
@@ -63,8 +65,8 @@ func createUsers(ctx context.Context, tx dal.ReadwriteTransaction) (err error) {
 		Email: "first.user@example.com",
 		ContactBase: briefs4contactus.ContactBase{
 			ContactBrief: briefs4contactus.ContactBrief{
-				Name: &dbmodels.Name{
-					Full: "First user",
+				Names: &person.NameFields{
+					FullName: "First user",
 				},
 			},
 		},
@@ -75,9 +77,9 @@ func createUsers(ctx context.Context, tx dal.ReadwriteTransaction) (err error) {
 	_, err = createUser(ctx, tx, "user2", &models4userus.UserDto{
 		ContactBase: briefs4contactus.ContactBase{
 			ContactBrief: briefs4contactus.ContactBrief{
-				Name: &dbmodels.Name{
-					First: "Second",
-					Last:  "UserDto",
+				Names: &person.NameFields{
+					FirstName: "Second",
+					LastName:  "UserDto",
 				},
 			},
 		},
@@ -103,7 +105,7 @@ func createTeams(ctx context.Context, tx dal.ReadwriteTransaction) (err error) {
 		TeamBrief: models4teamus.TeamBrief{
 			Type:  "team",
 			Title: "First team",
-			WithRequiredCountryID: dbmodels.WithRequiredCountryID{
+			RequiredCountryID: with.RequiredCountryID{
 				CountryID: "IE",
 			},
 		},
@@ -120,11 +122,11 @@ func createTeams(ctx context.Context, tx dal.ReadwriteTransaction) (err error) {
 		},
 		Type:   briefs4contactus.ContactTypePerson,
 		Gender: "unknown",
-		Name: &dbmodels.Name{
-			Full: "First user",
+		Names: &person.NameFields{
+			FullName: "First user",
 		},
 		Title: "First user",
-		WithRoles: dbmodels.WithRoles{
+		RolesField: with.RolesField{
 			Roles: []string{const4contactus.TeamMemberRoleMember, const4contactus.TeamMemberRoleContributor},
 		},
 	})
