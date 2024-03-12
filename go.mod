@@ -1,12 +1,12 @@
 module github.com/sneat-co/sneat-go-testdb
 
-go 1.21.6
+go 1.22.1
 
 require (
-	github.com/dal-go/dalgo v0.12.0
+	github.com/dal-go/dalgo v0.12.1
 	github.com/sneat-co/sneat-core-modules v0.12.4
-	github.com/sneat-co/sneat-go-core v0.23.0
-	github.com/strongo/strongoapp v0.17.0
+	github.com/sneat-co/sneat-go-core v0.23.3
+	github.com/strongo/strongoapp v0.17.1
 )
 
 require (
